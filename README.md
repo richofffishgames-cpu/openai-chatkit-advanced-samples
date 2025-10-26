@@ -86,6 +86,19 @@ With the app reachable locally or via a tunnel, open it in the browser and try a
 2. **Weather Info** - prompt: `What's the weather in San Francisco today?`
 3. **Theme Switcher** - prompt: `Change the theme to dark mode` 
 
+### Security Tools
+
+This application also integrates several offensive security tools from the Ghost-crew toolbox. These tools can be invoked by the chatbot to perform various security-related tasks.
+
+**Important:** Before using these tools, ensure you have the necessary system-level dependencies installed. For more information, see the `backend/README.md` file.
+
+Here are some example prompts for using the security tools:
+
+1.  **Nmap Scan** - prompt: `scan example.com with nmap`
+2.  **SQLmap Scan** - prompt: `scan http://testphp.vulnweb.com/listproducts.php?cat=1 with sqlmap`
+3.  **FFUF Scan** - prompt: `scan http://example.com with ffuf wordlist wordlist.txt`
+4.  **Metasploit Scan** - prompt: `scan example.com with metasploit module auxiliary/scanner/http/http_version`
+
 ## What's next
 
 Under the [`examples`](examples) directory, you'll find three more sample apps that ground the starter kit in real-world scenarios:
