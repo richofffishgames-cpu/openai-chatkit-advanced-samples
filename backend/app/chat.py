@@ -39,7 +39,7 @@ from .weather import (
 from .weather import (
     normalize_unit as normalize_temperature_unit,
 )
-from .security_tools import nmap_scan, sqlmap_scan
+from .security_tools import nmap_scan, sqlmap_scan, ffuf_scan, metasploit_scan
 
 # If you want to check what's going on under the hood, set this to DEBUG
 logging.basicConfig(level=logging.INFO)
@@ -205,7 +205,7 @@ class FactAssistantServer(ChatKitServer[dict[str, Any]]):
     def __init__(self) -> None:
         self.store: MemoryStore = MemoryStore()
         super().__init__(self.store)
-        tools = [save_fact, switch_theme, get_weather, nmap_scan, sqlmap_scan]
+        tools = [save_fact, switch_theme, get_weather, nmap_scan, sqlmap_scan, ffuf_scan, metasploit_scan]
         self.assistant = Agent[FactAgentContext](
             model=MODEL,
             name="ChatKit Guide",
