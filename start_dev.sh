@@ -83,5 +83,5 @@ echo "   - Frontend will run on http://127.0.0.1:$FRONTEND_PORT"
 # Use concurrently to run both servers.
 # It's already in the devDependencies of the root package.json.
 npx concurrently --kill-others-on-fail --names "BACKEND,FRONTEND" \
-  "cd backend && source .venv/bin/activate && uvicorn app.main:app --reload --port $BACKEND_PORT" \
+  "bash -c 'cd backend && source .venv/bin/activate && uvicorn app.main:app --reload --port $BACKEND_PORT'" \
   "npm --prefix frontend run dev -- --port $FRONTEND_PORT"
