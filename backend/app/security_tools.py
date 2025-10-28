@@ -8,8 +8,8 @@ async def nmap_scan(target: str, timeout: int = 60) -> dict[str, str]:
     """Perform a Nmap scan on a given target."""
     proc = None
     try:
-        proc = await asyncio.create_subprocess_exec(
-            "nmap", "-F", target,
+        proc = await asyncio.create_subprocess_shell(
+            f"nmap -F {target}",
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )
@@ -29,8 +29,8 @@ async def ffuf_scan(url: str, wordlist: str, timeout: int = 60) -> dict[str, str
     """Perform a FFUF scan on a given target URL."""
     proc = None
     try:
-        proc = await asyncio.create_subprocess_exec(
-            "ffuf", "-w", wordlist, "-u", f"{url}/FUZZ",
+        proc = await asyncio.create_subprocess_shell(
+            f"ffuf -w {wordlist} -u {url}/FUZZ",
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )
@@ -50,8 +50,8 @@ async def sqlmap_scan(url: str, timeout: int = 60) -> dict[str, str]:
     """Perform an SQLmap scan on a given target URL."""
     proc = None
     try:
-        proc = await asyncio.create_subprocess_exec(
-            "sqlmap", "-u", url, "--batch",
+        proc = await asyncio.create_subprocess_shell(
+            f"sqlmap -u {url} --batch",
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )
@@ -71,8 +71,8 @@ async def metasploit_scan(target: str, module: str, options: str = "", timeout: 
     """Perform a Metasploit scan on a given target."""
     proc = None
     try:
-        proc = await asyncio.create_subprocess_exec(
-            "msfconsole", "-q", "-x", f"use {module}; set RHOSTS {target}; {options}; run; exit",
+        proc = await asyncio.create_subprocess_shell(
+            f"msfconsole -q -x 'use {module}; set RHOSTS {target}; {options}; run; exit'",
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )

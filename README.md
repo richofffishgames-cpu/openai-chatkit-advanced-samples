@@ -128,6 +128,8 @@ Here are some example prompts for using the security tools:
 
 ## What's next
 
+For a detailed guide on implementing computer interaction features, see the [guide to implementing computer interaction](docs/COMPUTER_INTERACTION.md).
+
 Under the [`examples`](examples) directory, you'll find three more sample apps that ground the starter kit in real-world scenarios:
 
 1. [**Customer Support**](examples/customer-support): airline customer support workflow.
