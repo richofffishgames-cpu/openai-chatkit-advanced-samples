@@ -49,6 +49,13 @@ cd backend
 if [ ! -d ".venv" ]; then
   echo "   - Creating Python virtual environment..."
   python3 -m venv .venv
+
+  # Verify that the virtual environment was created
+  if [ ! -d ".venv" ]; then
+    echo "❌ Error: Failed to create the Python virtual environment."
+    echo "   Please check your file permissions and ensure you can create directories here."
+    exit 1
+  fi
 fi
 
 # Activate the virtual environment and install dependencies
