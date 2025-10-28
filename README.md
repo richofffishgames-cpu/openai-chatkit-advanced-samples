@@ -80,6 +80,33 @@ If you want to verify this remote access during development, temporarily expose 
 
 ### 3. Explore the demo flow
 
+### Automated Setup with `start_dev.sh`
+
+For a streamlined setup, a helper script `start_dev.sh` is provided. This script automates the dependency installation for both the frontend and backend and launches the servers.
+
+**Prerequisites:**
+- Make sure you are using a compatible Node.js LTS version (e.g., v20.x or v22.x). You can use a tool like [nvm](https://github.com/nvm-sh/nvm) to manage your Node.js version.
+- Ensure you have Python 3 installed.
+
+**To use the script:**
+
+1.  **Make the script executable:**
+    You only need to do this once.
+    ```bash
+    chmod +x start_dev.sh
+    ```
+
+2.  **Run the script:**
+    ```bash
+    ./start_dev.sh
+    ```
+
+The script will handle the rest. It will set up the Python virtual environment, install all dependencies, and launch both the backend and frontend servers.
+
+### Manual Setup
+
+If you prefer to set up the environment manually, follow the steps below.
+
 With the app reachable locally or via a tunnel, open it in the browser and try a few interactions. The sample ChatKit UI ships with three tools that trigger visible actions in the pane:
 
 1. **Fact Recording** - prompt: `My name is Kaz`
