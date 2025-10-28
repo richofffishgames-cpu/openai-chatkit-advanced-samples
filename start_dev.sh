@@ -26,6 +26,23 @@ echo "✅ Node.js version $(node -v) is compatible."
 
 # --- Backend Setup (using pip and venv) ---
 echo "🛠️  Setting up backend..."
+
+# --- Python venv Check ---
+# Check if python3-venv is installed on Debian-based systems.
+if [ -f /etc/debian_version ]; then
+    echo "🔎 Checking for Python venv package..."
+    if ! dpkg -s python3-venv &> /dev/null; then
+      echo "❌ Python's 'venv' module is not installed."
+      echo "   It is required to create the backend's virtual environment."
+      echo "   Please run the following command to install it:"
+      echo
+      echo "   sudo apt-get install -y python3-venv"
+      echo
+      exit 1
+    fi
+    echo "✅ Python venv package is installed."
+fi
+
 cd backend
 
 # Create a virtual environment if it doesn't exist
