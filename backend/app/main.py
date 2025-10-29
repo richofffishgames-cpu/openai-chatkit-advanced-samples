@@ -32,7 +32,7 @@ def get_chatkit_server() -> FactAssistantServer:
     return _chatkit_server
 
 
-@app.post("/chatkit")
+@app.post("/v1/chat")
 async def chatkit_endpoint(
     request: Request, server: FactAssistantServer = Depends(get_chatkit_server)
 ) -> Response:
