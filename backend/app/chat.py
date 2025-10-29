@@ -209,7 +209,7 @@ class FactAssistantServer(ChatKitServer[dict[str, Any]]):
         tools = [save_fact, switch_theme, get_weather, nmap_scan, sqlmap_scan, ffuf_scan, metasploit_scan, read_file, write_file]
         self.assistant = Agent[FactAgentContext](
             model=MODEL,
-            name="ChatKit Guide",
+            name="GhostCrew Agent",
             instructions=INSTRUCTIONS,
             tools=tools,  # type: ignore[arg-type]
         )
